@@ -20,8 +20,8 @@ jobs:
             apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
             apk add --update --no-cache git
             python3 -m ensurepip
-            pip3 install --no-cache --upgrade pip setuptools
-            pip install git+https://github.com/OCIoficial/ocimatic
+            pip3 install --no-cache --upgrade pip setuptools --break-system-packages
+            pip install git+https://github.com/OCIoficial/ocimatic --break-system-packages
             ocimatic problemset
 
       # Move the generated pdf to a folder and deploy that folder to branch 'pdf'.
