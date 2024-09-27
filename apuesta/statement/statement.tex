@@ -2,27 +2,35 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
 
-\title{Suma de ejemplo}
+\title{Apuesta}
 
 \begin{document}
 \begin{problemDescription}
-  Este es un problema de ejemplo para mostrar cómo usar ocimatic.
-  El problema es muy simple.
-  Te dan dos enteros y tienes que imprimir su suma.
-  Pero ten cuidado, !`la suma podría no caber en un entero de 32 bits con signo!
+Fernanda y tú decidieron hacer una apuesta de alto riesgo: Fernanda lanza una moneda. Si cae sello, pasarán a la Industria Chilena de Papas Caseras (ICPC) a comerse una porción de papas, de lo contario, se quedarán de brazos cruzados todo el día.
+Lamentablemente, la moneda cayó cara, por lo que el destino decidió que se perderían de esta increíble oportunidad. Pero Fernanda, no contenta con el resultado, decidió hacer otra apuesta.
+
+	Fernanda lanza $n$ monedas en una fila. Si en la mayoría estricta de segmentos\footnote{Un segmento es un arreglo contiguo de monedas. Por ejemplo, todas las monedas desde la tercera hasta la quinta.} de la fila, la mayoría de las monedas caen sello, irán a comer papas de todas formas.
+
+Una vez que lanzó las monedas, Fernanda se puso a contar la cantidad de segmentos exitosos y totales utilizando sus conocimentos avanzados de combinatoria.
+
+Sin embargo, le está tomando demasiado tiempo y la ICPC cierra en menos de 4 horas, por lo que decides sacas tu computador y te pones a programar una solución.
 \end{problemDescription}
 
 \begin{inputDescription}
-  La entrada consiste en una sola línea con dos enteros $a$ y $b$ ($-2\cdot10^9 \leq a, b \leq 2\cdot10^9$).
+	La primera linea contiene un único entero $n$ $(1 \leq n \leq 10^6)$, la cantidad de monedas.
+
+La segunda línea contiene $n$ enteros $m_i$, el resultado de la $i$-ésima moneda de la fila. $m_i$ es $-1$ si la moneda cayó sello, y $1$ en caso de haber caido cara.
 \end{inputDescription}
 
 \begin{outputDescription}
-  La salida debe contener un único entero correspondiente a la suma de $a$ y $b$.
+	La salida debe contener dos enteros $a$, $b$, que corresponden respectivamente a la cantidad de segmentos donde la mayoría estricta de monedas es sello, y la cantidad total de segmentos.
 \end{outputDescription}
 
 \begin{scoreDescription}
-  \subtask{50} Se probarán varios casos de prueba donde $-10^9\leq a, b \leq 10^9$.
-  \subtask{50} Se probarán varios casos de prueba sin restricciones adicionales.
+	\subtask{10} Se probarán varios casos de prueba donde $n \leq 4$
+	\subtask{20} Se probarán varios casos de prueba donde $n \leq 100$ (valor referencial, $O(n^3)$ debería funcionar)
+  	\subtask{30} Se probarán varios casos de prueba donde $n \leq 10^4$ (valor referencial, $O(n^2)$ debería funcionar)
+	\subtask{40} Se probarán varios casos de prueba sin restricciones adicionales. ($10^6$ como valor referencial, $O(n log n)$ debería funcionar)
 \end{scoreDescription}
 
 \begin{sampleDescription}
