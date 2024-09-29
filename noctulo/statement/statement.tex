@@ -2,31 +2,64 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
 
-\title{Suma de ejemplo}
+\title{Ricardo y su nóctulo}
 
 \begin{document}
 \begin{problemDescription}
-  Este es un problema de ejemplo para mostrar cómo usar ocimatic.
-  El problema es muy simple.
-  Te dan dos enteros y tienes que imprimir su suma.
-  Pero ten cuidado, !`la suma podría no caber en un entero de 32 bits con signo!
+Ricardo no tiene ni un perro ni un gato. Ricardo tiene una mascota muy exótica, un nóctulo. Para los que no sepan, un nóctulo es un murciélago chico.
+
+El problema de los nóctulos es que tienen horarios de trabajo muy rígidos y con Ricardo casi nunca coinciden con sus tiempos libres.
+
+Dependiendo del día de la semana, Ricardo trabaja de día o de noche. Su horario se describe como un string de $7$ letras en dónde cada letra representa su horario de trabajo ese día de la semana, 'D' significa día y 'N' significa noche. Entonces, el string "DDDDNNN" significa que él trabaja de día el lunes, martes, miércoles, jueves y trabaja de noche el viernes, sábado y domingo.
+
+Los nóctulos no funcionan de la misma manera, porque los nóctulos tienen $5$ días en su semana: noctulunes, noctumartes, noctumiércoles, noctujueves y noctuviernes y después del noctuviernes vuelve a ser noctulunes. Entonces para representar el horario del nóctulo se usa un string con $5$ letras.
+
+Ricardo y su nóctulo tienen muchas ganas de verse pero no saben cuándo ambos van a estar libres al mismo tiempo. Si ambos trabajan de día, se pueden ver en la noche, si ambos trabajan de noche se pueden ver en el día, pero si no trabajan al mismo tiempo, no se pueden ver ese día. Hoy justo es lunes y noctulunes al mismo tiempo, ¡ayúdalos diciéndoles cuándo es el próximo día en que se van a ver!
+
+Si nunca se van a ver, tienes que darles las malas noticias imprimiendo "No nos vemos nunca".
 \end{problemDescription}
 
 \begin{inputDescription}
-  La entrada consiste en una sola línea con dos enteros $a$ y $b$ ($-2\cdot10^9 \leq a, b \leq 2\cdot10^9$).
+La entrada consiste de dos líneas.
+
+La primera línea contiene un string de tamaño 7 que consta solo de los caracteres 'D' o 'N' donde cada carácter representa en que horario trabaja Ricardo ese día de la semana, 'D' significa de día y 'N' singifica de noche.
+
+La segunda línea contiene un string de tamaño 5 que consta solo de los caracteres 'D' o 'N' donde cada carácter representa en que horario trabaja el nóctulo ese día de la semana, 'D' significa de día y 'N' singifica de noche.
 \end{inputDescription}
 
 \begin{outputDescription}
-  La salida debe contener un único entero correspondiente a la suma de $a$ y $b$.
+La salida debe contener un único entero que represente en cuántos días más Ricardo y su nóctulo van a poder verse mientras no estén trabajando considerando que hoy es lunes y noctulunes al mismo tiempo. Si no se van a ver nunca, imprime "No nos vemos nunca".
 \end{outputDescription}
 
 \begin{scoreDescription}
-  \subtask{50} Se probarán varios casos de prueba donde $-10^9\leq a, b \leq 10^9$.
-  \subtask{50} Se probarán varios casos de prueba sin restricciones adicionales.
+  \subtask{15} Se probarán varios casos de prueba en los que se garantiza que van a poder verse en los primeros $5$ días.
+  \subtask{25} Se probarán varios casos de prueba en los que se garantiza que van a poder verse en los primeros $10$ días.
+  \subtask{60} Se probarán varios casos de prueba sin restricciones adicionales.
 \end{scoreDescription}
 
 \begin{sampleDescription}
 \sampleIO{sample-1}
+
+Nota
+Este caso de prueba se ve así
+\begin{table}[h]
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+Lunes      & Martes                             & Miércoles                          & Jueves   & Viernes  & Sábado     & Domingo    \\ \hline
+00 - Noche & 01 - Noche                         & 02 - Noche                         & 03 - Día & 04 - Día & 05 - Noche & 06 - Noche \\ \hline
+07 - Noche & \textbf{08 - Noche} & 09 - Noche & 10 - Día & 11 - Día & 12 - Noche & 13 - Noche \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Noctulunes & Noctumartes & Noctumiércoles & Noctujueves         & Noctuviernes \\ \hline
+00 - Día   & 01 - Día    & 02 - Día       & 03 - Noche          & 04 - Noche   \\ \hline
+05 - Día   & 06 - Día    & 07 - Día       & \textbf{08 - Noche} & 09 - Noche   \\ \hline
+\end{tabular}
+\end{table}
+
 \sampleIO{sample-2}
 \end{sampleDescription}
 
