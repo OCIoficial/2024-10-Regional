@@ -6,10 +6,50 @@
 
 \begin{document}
 \begin{problemDescription}
-  Este es un problema de ejemplo para mostrar cómo usar ocimatic.
-  El problema es muy simple.
-  Te dan dos enteros y tienes que imprimir su suma.
-  Pero ten cuidado, !`la suma podría no caber en un entero de 32 bits con signo!
+  Consientes de la crisis climática y las catastróficas consecuencias que se avecinan si no reducimos
+  las emisiones de carbono, la ciudad de Chuchunco ha decidido construir un nuevo sistema de transporte
+  público masivo de cero emisiones.
+  %
+  Tras una larga evaluación, los ciudadanos de Chuchunco ha decidido que la mejor opción es construir un
+  sistema de tren ligero o *tranvía*.
+
+  En su primera fase, el proyecto contempla la construcción de una línea separada del tráfico con
+  intersecciones a desnivel en puntos estratégicos.
+  %
+  La línea tendrá un largo $L$ y contará con $N$ estaciones.
+  %
+  Las estaciones serán numeradas de 1 a $N$ y la estación $i$ estará a una distancia $D_i$
+  ($0 \leq D_i \leq L$) del inicio de la línea.
+  %
+  Para su apertura, también está considerada la compra de $T$ trenes articulados de piso bajo
+  que serán numerados de 1 a $T$.
+
+  La línea contará con un moderno sistema de Control de Trenes Basado en Comunicaciones (CBTC por
+  sus siglas en inglés).
+  %
+  El sistema CBTC permitirá conocer la posición exacta de los trenes de forma de tener una gestión
+  de tráfico eficiente y segura.
+  %
+  La ciudad de Chunchunco quiere aprovechar esta tecnología para instalar pantallas en todas las
+  estaciones que muestren el tiempo estimado de llegada del próximo tren.
+
+  Las pantallas obtendrán la información de un servidor central que mantendrá la posición de cada
+  uno de los trenes.
+  %
+  La posición de un tren puede ser desconocida en caso de no estar en servicio o haber fallos en el
+  sistema.
+  %
+  En caso contrario, la posición es representada con un entero $d$ ($0 \leq d\leq L$) correspondiente
+  a la distancia desde el inicio de la línea.
+  %
+  El servidor actualizará periódicamente las posiciones de los trenes y basándose en estas, responderá
+  cuál es el tiempo estimado de llegada del siguiente tren.
+  %
+  Específicamente, el servidor debe procesar dos tipos de consultas:
+  \begin{enumerate}
+    \item Dado un tren $t$ y una distancia $d$, actualizar la posición del tren $t$ para que sea $d$.
+    \item Dada una estación $e$ calcular el tiempo de llegada del siguiente tren.
+  \end{enumerate}
 \end{problemDescription}
 
 \begin{inputDescription}
