@@ -6,49 +6,93 @@
 
 \begin{document}
 \begin{problemDescription}
-  Consientes de la crisis climática y las catastróficas consecuencias que se avecinan si no reducimos
-  las emisiones de carbono, la ciudad de Chuchunco ha decidido construir un nuevo sistema de transporte
-  público masivo de cero emisiones.
+  Consientes de la crisis climática, la ciudad de Chuchunco
+  han decidido construir un nuevo sistema de transporte
+  público sustentable.
   %
-  Tras una larga evaluación, los ciudadanos de Chuchunco ha decidido que la mejor opción es construir un
-  sistema de tren ligero o *tranvía*.
+  Tras una larga evaluación, el consejo ciudadano
+  ha decidido que la mejor opción es construir un
+  sistema de tren ligero.
 
-  En su primera fase, el proyecto contempla la construcción de una línea separada del tráfico con
+  En su primera fase, el proyecto contempla la
+  construcción de una línea separada del tráfico, con
   intersecciones a desnivel en puntos estratégicos.
   %
-  La línea tendrá un largo $L$ y contará con $N$ estaciones.
+  La línea tendrá un largo $L$ y contará con $N$
+  estaciones numeradas de oeste a este entre 1 y $N$.
   %
-  Las estaciones serán numeradas de 1 a $N$ y la estación $i$ estará a una distancia $D_i$
-  ($0 \leq D_i \leq L$) del inicio de la línea.
+  La estación $i$ estará a una distancia $D_i$
+  ($0 \leq D_i \leq L$) desde el extremo oeste
+  de la línea.
   %
-  Para su apertura, también está considerada la compra de $T$ trenes articulados de piso bajo
-  que serán numerados de 1 a $T$.
+  La primera estación se construirá en el extremo
+  oeste ($D_1 = 0$) y la última estación
+  en el extremo este ($D_N = L$).
+  %
+  Para su apertura, también está considerada la
+  compra de $M$ trenes articulados de piso bajo
+  de última generación.
+  %
+  Estos trenes serán numerados de 1 a $M$.
 
-  La línea contará con un moderno sistema de Control de Trenes Basado en Comunicaciones (CBTC por
-  sus siglas en inglés).
+  La línea contará con un moderno sistema de
+  Control de Trenes Basado en Comunicaciones
+  (CBTC por sus siglas en inglés).
   %
-  El sistema CBTC permitirá conocer la posición exacta de los trenes de forma de tener una gestión
-  de tráfico eficiente y segura.
+  El sistema CBTC permitirá conocer la posición
+  exacta de los trenes de forma de tener una
+  gestión de tráfico eficiente y segura.
   %
-  La ciudad de Chunchunco quiere aprovechar esta tecnología para instalar pantallas en todas las
-  estaciones que muestren el tiempo estimado de llegada del próximo tren.
+  Aprovechando esta tecnología, el consejo de
+  transporte ha decidido instalar pantallas en todas las
+  estaciones que muestren el tiempo estimado de
+  llegada del próximo tren.
 
-  Las pantallas obtendrán la información de un servidor central que mantendrá la posición de cada
-  uno de los trenes.
+  Las pantallas obtendrán la información de un
+  servidor central que mantendrá el estado
+  de cada uno de los trenes.
   %
-  La posición de un tren puede ser desconocida en caso de no estar en servicio o haber fallos en el
-  sistema.
+  En condiciones normales, el estado de un tren
+  se representa con un par $(p, c)$ indicando
+  su posición y dirección respectivamente.
   %
-  En caso contrario, la posición es representada con un entero $d$ ($0 \leq d\leq L$) correspondiente
-  a la distancia desde el inicio de la línea.
+  El valor $p$ es un entero correspondiente a la
+  distancia actual del tren desde el extremo oeste
+  de la línea.
   %
-  El servidor actualizará periódicamente las posiciones de los trenes y basándose en estas, responderá
-  cuál es el tiempo estimado de llegada del siguiente tren.
+  El valor $c$ es un carácter que será \texttt{E}
+  si el tren se dirige hacia el este u \texttt{O}
+  si se dirige hacia el oeste.
   %
-  Específicamente, el servidor debe procesar dos tipos de consultas:
+  El estado de un tren también puede ser desconocido
+  en caso de no estar en servicio o haber fallos
+  de conexión.
+
+  En un inicio, el estado de todos los trenes es
+  desconocido.
+  %
+  A medida que estos entran en funcionamiento, el
+  servidor va recibiendo eventos indicando el
+  último estado conocido de los trenes.
+  %
+  Basándose en el último estado conocido, el servidor
+  debe responder el tiempo estimado de llegada del
+  próximo tren asumiendo que los trenes se seguirán
+  moviendo en la misma dirección a una velocidad
+  constante $V$.
+  %
+  Específicamente, el servidor deber procesar dos tipos
+  de eventos:
   \begin{enumerate}
-    \item Dado un tren $t$ y una distancia $d$, actualizar la posición del tren $t$ para que sea $d$.
-    \item Dada una estación $e$ calcular el tiempo de llegada del siguiente tren.
+    \item \texttt{Estado j p c}: Indica que el último
+    estado conocido del tren $j$ es $(p, c)$.
+    %
+    Si $p$ es $-1$ el estado del tren es desconocido.
+    %
+    En este caso el valor $c$ es irrelevante.
+    \item \texttt{Tiempo i c}: Dada una estación $i$,
+    el servidor debe responder el tiempo estimado de
+    llegada del próximo tren en dirección $c$.
   \end{enumerate}
 \end{problemDescription}
 
