@@ -65,14 +65,14 @@
   Basándose en el último estado conocido, el servidor
   debe responder el tiempo estimado de llegada del
   próximo tren asumiendo que los trenes se seguirán
-  moviendo a una velocidad constante $V$.
+  moviendo a una velocidad constante unitaria.
   %
   Específicamente, para una estación $i$ a distancia $d_i$,
   el próximo tren corresponde al tren más cercano
-  cuya posición es menor o igual a $d_i$.
+  cuya posición es \textbf{menor o igual} que $d_i$.
   %
-  Dado la posición $p$ del tren más cercano, el tiempo estimado
-  de llegada se calcula como $(d_i - p)/V$.
+  Dado la posición $p$ del próximo tren, el tiempo estimado
+  de llegada se calcula como $(d_i - p)$.
 
   Concretamente, el servidor deber responder a dos tipos
   de eventos:
@@ -86,16 +86,15 @@
     que hay ningún tren que se aproxima.
   \end{itemize}
   El consejo de transporte tiene poca experiencia en programación.
-  ?`Podrías ayudarlos implementando la funcionalidad del servidor?
+  ?`Podrías ayudarlos implementando el servidor?
 \end{problemDescription}
 
 \begin{inputDescription}
-  La primera línea de la entrada contiene 5 enteros $L$, $N$, $M$, $V$ y $E$:
+  La primera línea de la entrada contiene 5 enteros $L$, $N$, $M$ y $E$:
   \begin{itemize}
     \item $L$ es el largo de la línea ($0 < L \leq 10^9$)
     \item $N$ es la cantidad de estaciones ($0 < N \leq 10^6$)
-    \item $M$ es la cantidad de trenes ($0 < N \leq 10^6$)
-    \item $V$ es la velocidad de los trenes ($0 < V \leq 10^9$)
+    \item $M$ es la cantidad de trenes ($0 < M \leq 10^6$)
     \item $E$ es el número de eventos que debe procesar el servidor ($0 < E \leq 10^6$)
   \end{itemize}
   %
@@ -111,7 +110,7 @@
   \item Si $t=1$ siguen dos enteros $j$ ($1\leq j \leq M$) y $p$, indicando
   que la última posición conocida del tren $j$ es $p$.
   %
-  Si $p$ es igual a $-1$ la posición del tren es desconocida.
+  Si $p$ es igual a -1 la posición del tren es desconocida.
   %
   En caso contrario será un entero entre 0 y $L$ indicando la posición del tren
   desde el inicio de la línea.
@@ -125,22 +124,20 @@
 \begin{outputDescription}
   La salida debe contener la respuesta a cada evento de tipo 2.
   %
-  Cada respuesta debe aparecer en una nueva línea en el orden que aparecen
-  los eventos en la entrada.
+  Cada respuesta debe aparecer en una nueva línea en el orden en
+  que los eventos aparecen en la entrada.
   %
   La respuesta debe ser un entero correspondiente al tiempo estimado de llegada
-  del próximo tren o la cadena ``\texttt{SIN INFORMACION}'' (sin comillas) en caso
-  de no haber un próximo tren.
+  del próximo tren o -1 en caso de no haber un próximo tren.
 \end{outputDescription}
 
 \begin{scoreDescription}
-  \subtask{50} Se probarán varios casos de prueba donde $-10^9\leq a, b \leq 10^9$.
-  \subtask{50} Se probarán varios casos de prueba sin restricciones adicionales.
+  \subtask{30} Se probarán varios casos de prueba donde $M \leq 10^3$ y $E \leq 10^3$.
+  \subtask{70} Se probarán varios casos de prueba sin restricciones adicionales.
 \end{scoreDescription}
 
 \begin{sampleDescription}
 \sampleIO{sample-1}
-\sampleIO{sample-2}
 \end{sampleDescription}
 
 \end{document}

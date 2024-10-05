@@ -1,13 +1,30 @@
+#include <climits>
 #include <cstdint>
 #include <iostream>
 #include <set>
 #include <vector>
 using namespace std;
 
-int main() {
-  int L, N, M, V, E;
+int find_closest_train_pos(const set<pair<int, int>>& sorted_trains, int d) {
+  // Esto retorna el primer tren cuya posición es estrictamente mayor
+  auto it = sorted_trains.upper_bound({d, INT_MAX});
 
-  cin >> L >> N >> M >> V >> E;
+  // Si no hay mas trenes hacia atras, entonces no hay ningun tren que se
+  // aproxime a la estación
+  if (it == sorted_trains.cbegin()) {
+    return -1;
+  }
+
+  // En caso contrario el tren anterior es el primero cuya posición es menor o
+  // igual asi que retornamos su posición
+  it--;
+  return it->first;
+}
+
+int main() {
+  int L, N, M, E;
+
+  cin >> L >> N >> M >> E;
 
   // Distancia de cada estación
   vector<int> station_distance(N + 1);
@@ -45,28 +62,12 @@ int main() {
       int d = station_distance[i];
       int p = find_closest_train_pos(sorted_trains, d);
       if (p == -1) {
-        cout << "SIN INFORMACION" << endl;
+        cout << "-1" << endl;
       } else {
-        int time = (d - p) / V;
+        int time = (d - p);
         cout << time << endl;
       }
     }
   }
   return 0;
-}
-
-int find_closest_train_pos(const set<pair<int, int>>& sorted_trains, int d) {
-  // Esto retorna el primer tren cuya posición es estrictamente mayor
-  auto it = sorted_trains.upper_bound({d, -1});
-
-  // Si no hay mas trenes hacia atras, entonces no hay ningun tren que se
-  // aproxime a la estación
-  if (it == sorted_trains.cbegin()) {
-    return -1;
-  }
-
-  // En caso contrario el tren anterior es el primero cuya posición es menor o
-  // igual asi que retornamos su posición
-  it--;
-  return it->first;
 }
