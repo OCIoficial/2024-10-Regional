@@ -1,18 +1,26 @@
-# This script generates random test cases for the sample task. It takes a
-# minimum and maximum value and prints two random numbers in that range.
-# See the comment in testplan.txt for further details.
-
 import random
 import sys
 
-# The argument in position 1 is the hidden seed.
 random.seed(sys.argv[1])
 
-# The min and max are in positions 2 and 3
-MIN = int(sys.argv[2])
-MAX = int(sys.argv[3])
+N = int(sys.argv[2])
+M = int(sys.argv[3])
+E = int(sys.argv[4])
 
-# Check that the range is valid
-assert MIN <= MAX
+L = random.randint(100_000_000, 1_000_000_000)
 
-print(random.randint(MIN, MAX), random.randint(MIN, MAX))
+print(L, N, M, E)
+
+D = sorted(random.sample(range(0, L), N))
+print(" ".join(str(d) for d in D))
+
+for _ in range(E):
+    t = random.randint(1, 2)
+    print(t, end=" ")
+    if t == 1:
+        j = random.randint(1, M)
+        p = random.randint(0, L)
+        print(j, p)
+    else:
+        i = random.randint(1, N)
+        print(i)

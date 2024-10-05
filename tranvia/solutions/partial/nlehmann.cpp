@@ -17,10 +17,10 @@ int main() {
   vector<int> train_positions(M, -1);
 
   for (int i = 0; i < E; ++i) {
-    int type;
-    cin >> type;
+    int t;
+    cin >> t;
 
-    if (type == 1) {
+    if (t == 1) {
       int j, p;
       cin >> j >> p;
 
@@ -31,17 +31,17 @@ int main() {
 
       int d = station_distance[i - 1];
 
-      int min = INT_MAX;
+      int max = INT_MIN;
       for (int j = 0; j < M; ++j) {
         int p = train_positions[j];
-        if (p != -1 && p <= d && p < min) {
-          min = p;
+        if (p != -1 && p <= d && p > max) {
+          max = p;
         }
       }
-      if (min == INT_MAX) {
+      if (max == INT_MIN) {
         cout << "-1" << endl;
       } else {
-        cout << (d - min) << endl;
+        cout << (d - max) << endl;
       }
     }
   }
