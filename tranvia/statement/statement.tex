@@ -10,8 +10,8 @@
   han decidido construir un nuevo sistema de transporte
   público sustentable.
   %
-  Tras una larga evaluación, el consejo ciudadano
-  ha decidido que la mejor opción es construir un
+  Tras una larga evaluación, el consejo ciudadano de
+  transporte ha decidido que la mejor opción es construir un
   sistema de tren ligero o \emph{tranvía}.
 
   En su primera fase, el proyecto contempla la
@@ -21,8 +21,8 @@
   La línea tendrá un largo $L$ y contará con $N$
   estaciones numeradas de 1 a $N$.
   %
-  La estación $i$ estará a una distancia $D_i$
-  ($0 \leq D_i \leq L$) desde el inicio de la línea.
+  La estación $i$ estará a una distancia $d_i$
+  ($0 \leq d_i \leq L$) desde el inicio de la línea.
   %
   Para su apertura, también está considerada la
   compra de $M$ trenes articulados de piso bajo
@@ -67,7 +67,14 @@
   próximo tren asumiendo que los trenes se seguirán
   moviendo a una velocidad constante $V$.
   %
-  Específicamente, el servidor deber procesar dos tipos
+  Específicamente, para una estación $i$ a distancia $d_i$,
+  el próximo tren corresponde al tren más cercano
+  cuya posición es menor o igual a $d_i$.
+  %
+  Dado la posición $p$ del tren más cercano, el tiempo estimado
+  de llegada se calcula como $(d_i - p)/V$.
+
+  Concretamente, el servidor deber responder a dos tipos
   de eventos:
   \begin{itemize}
     \item \textbf{Tipo 1}: Dada dos enteros $j$ y $p$, este evento
@@ -78,6 +85,8 @@
     responder el tiempo estimado de llegada del próximo tren o determinar
     que hay ningún tren que se aproxima.
   \end{itemize}
+  El consejo de transporte tiene poca experiencia en programación.
+  ?`Podrías ayudarlos implementando la funcionalidad del servidor?
 \end{problemDescription}
 
 \begin{inputDescription}
@@ -109,6 +118,8 @@
   \item Si $t=2$ sigue un entero $i$ indicando que el servidor debe responder el tiempo
   estimado de llegada del próximo tren para la estación $i$.
   \end{itemize}
+
+  Se garantiza que en ningún momento dos trenes estarán en la misma posición.
 \end{inputDescription}
 
 \begin{outputDescription}
