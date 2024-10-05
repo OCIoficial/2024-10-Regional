@@ -12,22 +12,17 @@
   %
   Tras una larga evaluación, el consejo ciudadano
   ha decidido que la mejor opción es construir un
-  sistema de tren ligero.
+  sistema de tren ligero o \emph{tranvía}.
 
   En su primera fase, el proyecto contempla la
   construcción de una línea separada del tráfico, con
   intersecciones a desnivel en puntos estratégicos.
   %
   La línea tendrá un largo $L$ y contará con $N$
-  estaciones numeradas de oeste a este entre 1 y $N$.
+  estaciones numeradas de 1 a $N$.
   %
   La estación $i$ estará a una distancia $D_i$
-  ($0 \leq D_i \leq L$) desde el extremo oeste
-  de la línea.
-  %
-  La primera estación se construirá en el extremo
-  oeste ($D_1 = 0$) y la última estación
-  en el extremo este ($D_N = L$).
+  ($0 \leq D_i \leq L$) desde el inicio de la línea.
   %
   Para su apertura, también está considerada la
   compra de $M$ trenes articulados de piso bajo
@@ -44,7 +39,7 @@
   gestión de tráfico eficiente y segura.
   %
   Aprovechando esta tecnología, el consejo de
-  transporte ha decidido instalar pantallas en todas las
+  transporte ha decidido instalar pantallas en las
   estaciones que muestren el tiempo estimado de
   llegada del próximo tren.
 
@@ -53,16 +48,8 @@
   de cada uno de los trenes.
   %
   En condiciones normales, el estado de un tren
-  se representa con un par $(p, c)$ indicando
-  su posición y dirección respectivamente.
-  %
-  El valor $p$ es un entero correspondiente a la
-  distancia actual del tren desde el extremo oeste
-  de la línea.
-  %
-  El valor $c$ es un carácter que será \texttt{E}
-  si el tren se dirige hacia el este u \texttt{O}
-  si se dirige hacia el oeste.
+  se representa con un entero $p$ indicando
+  su posición desde el inicio de la línea.
   %
   El estado de un tren también puede ser desconocido
   en caso de no estar en servicio o haber fallos
@@ -78,30 +65,61 @@
   Basándose en el último estado conocido, el servidor
   debe responder el tiempo estimado de llegada del
   próximo tren asumiendo que los trenes se seguirán
-  moviendo en la misma dirección a una velocidad
-  constante $V$.
+  moviendo a una velocidad constante $V$.
   %
   Específicamente, el servidor deber procesar dos tipos
   de eventos:
-  \begin{enumerate}
-    \item \texttt{Estado j p c}: Indica que el último
-    estado conocido del tren $j$ es $(p, c)$.
+  \begin{itemize}
+    \item \textbf{Tipo 1}: Dada dos enteros $j$ y $p$, este evento
+    indica que la última posición conocida del tren $j$ es $p$.
     %
-    Si $p$ es $-1$ el estado del tren es desconocido.
-    %
-    En este caso el valor $c$ es irrelevante.
-    \item \texttt{Tiempo i c}: Dada una estación $i$,
-    el servidor debe responder el tiempo estimado de
-    llegada del próximo tren en dirección $c$.
-  \end{enumerate}
+    Si $p$ es igual a $-1$ entonces la posición del tren es desconocida.
+    \item \textbf{Tipo 2}: Dada una estación $i$, el servidor debe
+    responder el tiempo estimado de llegada del próximo tren o determinar
+    que hay ningún tren que se aproxima.
+  \end{itemize}
 \end{problemDescription}
 
 \begin{inputDescription}
-  La entrada consiste en una sola línea con dos enteros $a$ y $b$ ($-2\cdot10^9 \leq a, b \leq 2\cdot10^9$).
+  La primera línea de la entrada contiene 5 enteros $L$, $N$, $M$, $V$ y $E$:
+  \begin{itemize}
+    \item $L$ es el largo de la línea ($0 < L \leq 10^9$)
+    \item $N$ es la cantidad de estaciones ($0 < N \leq 10^6$)
+    \item $M$ es la cantidad de trenes ($0 < N \leq 10^6$)
+    \item $V$ es la velocidad de los trenes ($0 < V \leq 10^9$)
+    \item $E$ es el número de eventos que debe procesar el servidor ($0 < E \leq 10^6$)
+  \end{itemize}
+  %
+  %
+  La segunda línea contiene $N$ enteros entre 0 y $L$ correspondientes a la distancia
+  donde se ubica cada una de las estaciones.
+
+  Luego siguen $E$ líneas que describen cada uno de los eventos.
+  %
+  Cada línea comienza con un entero $t$ ($t=1$ o $t=2$) indicando el tipo de evento:
+  %
+  \begin{itemize}
+  \item Si $t=1$ siguen dos enteros $j$ ($1\leq j \leq M$) y $p$, indicando
+  que la última posición conocida del tren $j$ es $p$.
+  %
+  Si $p$ es igual a $-1$ la posición del tren es desconocida.
+  %
+  En caso contrario será un entero entre 0 y $L$ indicando la posición del tren
+  desde el inicio de la línea.
+  \item Si $t=2$ sigue un entero $i$ indicando que el servidor debe responder el tiempo
+  estimado de llegada del próximo tren para la estación $i$.
+  \end{itemize}
 \end{inputDescription}
 
 \begin{outputDescription}
-  La salida debe contener un único entero correspondiente a la suma de $a$ y $b$.
+  La salida debe contener la respuesta a cada evento de tipo 2.
+  %
+  Cada respuesta debe aparecer en una nueva línea en el orden que aparecen
+  los eventos en la entrada.
+  %
+  La respuesta debe ser un entero correspondiente al tiempo estimado de llegada
+  del próximo tren o la cadena ``\texttt{SIN INFORMACION}'' (sin comillas) en caso
+  de no haber un próximo tren.
 \end{outputDescription}
 
 \begin{scoreDescription}
