@@ -99,21 +99,23 @@
   \end{itemize}
   %
   %
-  La segunda línea contiene $N$ enteros entre 0 y $L$ correspondientes a la distancia
-  donde se ubica cada una de las estaciones.
+  La segunda línea contiene $N$ enteros ordenados entre 0 y $L$ correspondientes
+  a la distancia donde se ubica cada una de las estaciones.
+  %
+  Se garantiza que todas las estaciones estarán en una posición distinta.
 
   Luego siguen $E$ líneas que describen cada uno de los eventos.
   %
   Cada línea comienza con un entero $t$ ($t=1$ o $t=2$) indicando el tipo de evento:
   %
   \begin{itemize}
-  \item Si $t=1$ siguen dos enteros $j$ ($1\leq j \leq M$) y $p$, indicando
-  que la última posición conocida del tren $j$ es $p$.
+  \item Si $t=1$ siguen dos enteros $j$ ($1\leq j \leq M$) y $p$ ($-1\leq p \leq L$),
+  indicando que la última posición conocida del tren $j$ es $p$.
   %
   Si $p$ es igual a -1 la posición del tren es desconocida.
   %
-  En caso contrario será un entero entre 0 y $L$ indicando la posición del tren
-  desde el inicio de la línea.
+  En caso contrario, $p$ indica la posición del tren desde el inicio
+  de la línea.
   \item Si $t=2$ sigue un entero $i$ indicando que el servidor debe responder el tiempo
   estimado de llegada del próximo tren para la estación $i$.
   \end{itemize}

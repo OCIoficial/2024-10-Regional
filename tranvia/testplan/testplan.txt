@@ -3,19 +3,26 @@
   # Casos de ejemplo
   sample ; copy statement/sample-*.in
 
-  # Algunos casos random
-  rand-small-n ; gen_random.py 10 10 10
-  rand-small-n ; gen_random.py 10 100 100
-  rand-small-n ; gen_random.py 10 1000 1000
-  rand-big-n ; gen_random.py 100000 10 10
-  rand-big-n ; gen_random.py 100000 100 100
-  rand-big-n ; gen_random.py 100000 1000 1000
+  # Caso borde con L=1
+  largo-uno ; copy testplan/manual-1.in
+
+  # Casos random
+  rand-small-n ; dumb_random.py 10 10 10
+  rand-small-n ; dumb_random.py 10 100 100
+  rand-small-n ; dumb_random.py 10 1000 1000
+  rand-big-n ; dumb_random.py 100000 10 10
+  rand-big-n ; dumb_random.py 100000 100 100
+  rand-big-n ; dumb_random.py 100000 1000 1000
+  smart_random ; smart_random.py 500 forward
+  smart_random ; smart_random.py 500 reverse
 
 [Subtask 2]
   @extends subtask 1
 
-  # Algunos casos random
-  rand-small-n ; gen_random.py 10 10000 10000
-  rand-small-n ; gen_random.py 10 100000 100000
-  rand-big-n ; gen_random.py 100000 10000 10000
-  rand-big-n ; gen_random.py 100000 100000 100000
+  # Casos random
+  rand-small-n ; dumb_random.py 10 10000 10000
+  rand-small-n ; dumb_random.py 10 100000 100000
+  rand-big-n ; dumb_random.py 100000 10000 10000
+  rand-big-n ; dumb_random.py 100000 100000 100000
+  smart_random ; smart_random.py 50000 forward
+  smart_random ; smart_random.py 50000 reverse
