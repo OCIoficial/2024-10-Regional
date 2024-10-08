@@ -2,32 +2,144 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
 
-\title{Suma de ejemplo}
+\title{Tranvía en Chuchunco}
 
 \begin{document}
 \begin{problemDescription}
-  Este es un problema de ejemplo para mostrar cómo usar ocimatic.
-  El problema es muy simple.
-  Te dan dos enteros y tienes que imprimir su suma.
-  Pero ten cuidado, !`la suma podría no caber en un entero de 32 bits con signo!
+  Consientes de la crisis climática, la ciudad de Chuchunco
+  han decidido construir un nuevo sistema de transporte
+  público sustentable.
+  %
+  Tras una larga evaluación, el consejo ciudadano de
+  transporte ha decidido que la mejor opción es construir un
+  sistema de tren ligero o \emph{tranvía}.
+
+  En su primera fase, el proyecto contempla la
+  construcción de una línea separada del tráfico, con
+  intersecciones a desnivel en puntos estratégicos.
+  %
+  La línea tendrá un largo $L$ y contará con $N$
+  estaciones numeradas de 1 a $N$.
+  %
+  La estación $i$ estará a una distancia $d_i$
+  ($0 \leq d_i \leq L$) desde el inicio de la línea.
+  %
+  Para su apertura, también está considerada la
+  compra de $M$ trenes articulados de piso bajo
+  de última generación.
+  %
+  Estos trenes serán numerados de 1 a $M$.
+
+  La línea contará con un moderno sistema de
+  Control de Trenes Basado en Comunicaciones
+  (CBTC por sus siglas en inglés).
+  %
+  El sistema CBTC permitirá conocer la posición
+  exacta de los trenes de forma de tener una
+  gestión de tráfico eficiente y segura.
+  %
+  Aprovechando esta tecnología, el consejo de
+  transporte ha decidido instalar pantallas en las
+  estaciones que muestren el tiempo estimado de
+  llegada del próximo tren.
+
+  Las pantallas obtendrán la información de un
+  servidor central que mantendrá el estado
+  de cada uno de los trenes.
+  %
+  En condiciones normales, el estado de un tren
+  se representa con un entero $p$ indicando
+  su posición desde el inicio de la línea.
+  %
+  El estado de un tren también puede ser desconocido
+  en caso de no estar en servicio o haber fallos
+  de conexión.
+
+  En un inicio, el estado de todos los trenes es
+  desconocido.
+  %
+  A medida que estos entran en funcionamiento, el
+  servidor va recibiendo eventos indicando el
+  último estado conocido de los trenes.
+  %
+  Basándose en el último estado conocido, el servidor
+  debe responder el tiempo estimado de llegada del
+  próximo tren asumiendo que los trenes se seguirán
+  moviendo a una velocidad constante unitaria.
+  %
+  Específicamente, para una estación $i$ a distancia $d_i$,
+  el próximo tren corresponde al tren más cercano
+  cuya posición es \textbf{menor o igual} que $d_i$.
+  %
+  Dado la posición $p$ del próximo tren, el tiempo estimado
+  de llegada se calcula como $(d_i - p)$.
+
+  Concretamente, el servidor deber responder a dos tipos
+  de eventos:
+  \begin{itemize}
+    \item \textbf{Tipo 1}: Dada dos enteros $j$ y $p$, este evento
+    indica que la última posición conocida del tren $j$ es $p$.
+    %
+    Si $p$ es igual a $-1$ entonces la posición del tren es desconocida.
+    \item \textbf{Tipo 2}: Dada una estación $i$, el servidor debe
+    responder el tiempo estimado de llegada del próximo tren o determinar
+    que hay ningún tren que se aproxima.
+  \end{itemize}
+  El consejo de transporte tiene poca experiencia en programación.
+  ?`Podrías ayudarlos implementando el servidor?
 \end{problemDescription}
 
 \begin{inputDescription}
-  La entrada consiste en una sola línea con dos enteros $a$ y $b$ ($-2\cdot10^9 \leq a, b \leq 2\cdot10^9$).
+  La primera línea de la entrada contiene 5 enteros $L$, $N$, $M$ y $E$:
+  \begin{itemize}
+    \item $L$ es el largo de la línea ($0 < L \leq 10^9$)
+    \item $N$ es la cantidad de estaciones ($0 < N \leq 10^5$)
+    \item $M$ es la cantidad de trenes ($0 < M \leq 10^5$)
+    \item $E$ es el número de eventos que debe procesar el servidor ($0 < E \leq 10^5$)
+  \end{itemize}
+  %
+  %
+  La segunda línea contiene $N$ enteros ordenados entre 0 y $L$ correspondientes
+  a la distancia donde se ubica cada una de las estaciones.
+  %
+  Se garantiza que todas las estaciones estarán en una posición distinta.
+
+  Luego siguen $E$ líneas que describen cada uno de los eventos.
+  %
+  Cada línea comienza con un entero $t$ ($t=1$ o $t=2$) indicando el tipo de evento:
+  %
+  \begin{itemize}
+  \item Si $t=1$ siguen dos enteros $j$ ($1\leq j \leq M$) y $p$ ($-1\leq p \leq L$),
+  indicando que la última posición conocida del tren $j$ es $p$.
+  %
+  Si $p$ es igual a -1 la posición del tren es desconocida.
+  %
+  En caso contrario, $p$ indica la posición del tren desde el inicio
+  de la línea.
+  \item Si $t=2$ sigue un entero $i$ indicando que el servidor debe responder el tiempo
+  estimado de llegada del próximo tren para la estación $i$.
+  \end{itemize}
+
+  % Se garantiza que en ningún momento dos trenes estarán en la misma posición.
 \end{inputDescription}
 
 \begin{outputDescription}
-  La salida debe contener un único entero correspondiente a la suma de $a$ y $b$.
+  La salida debe contener la respuesta a cada evento de tipo 2.
+  %
+  Cada respuesta debe aparecer en una nueva línea en el orden en
+  que los eventos aparecen en la entrada.
+  %
+  La respuesta debe ser un entero correspondiente al tiempo estimado de llegada
+  del próximo tren o -1 en caso de no haber un próximo tren.
 \end{outputDescription}
 
 \begin{scoreDescription}
-  \subtask{50} Se probarán varios casos de prueba donde $-10^9\leq a, b \leq 10^9$.
-  \subtask{50} Se probarán varios casos de prueba sin restricciones adicionales.
+  \subtask{30} Se probarán varios casos de prueba donde $M \leq 10^3$ y $E \leq 10^3$.
+  \subtask{70} Se probarán varios casos de prueba sin restricciones adicionales.
 \end{scoreDescription}
 
 \begin{sampleDescription}
 \sampleIO{sample-1}
-\sampleIO{sample-2}
 \end{sampleDescription}
 
 \end{document}
