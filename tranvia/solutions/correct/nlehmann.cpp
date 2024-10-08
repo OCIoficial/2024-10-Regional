@@ -5,12 +5,12 @@
 #include <vector>
 using namespace std;
 
-int find_closest_train_pos(const set<pair<int, int>>& sorted_trains, int d) {
-  // Esto retorna el primer tren cuya posición es estrictamente mayor
+int find_next_train_pos(const set<pair<int, int>>& sorted_trains, int d) {
+  // Esto retorna el primer tren cuya posición es *estrictamente* mayor que `d`
   auto it = sorted_trains.upper_bound({d, INT_MAX});
+  sorted_trains.lower_bound({d, INT_MAX});
 
-  // Si no hay mas trenes hacia atras, entonces no hay ningun tren que se
-  // aproxime a la estación
+  // Si este es el tren con la menor posición entonces no hay próximo tren
   if (it == sorted_trains.cbegin()) {
     return -1;
   }
@@ -32,11 +32,13 @@ int main() {
     cin >> station_distance[i];
   }
 
-  // Posición de cada tren
+  // Posición de cada tren. Todos parten con -1
   vector<int> train_positions(M + 1, -1);
 
-  // Conjunto de pares (p, j) donde p es la posición del tren y j el numero del
-  // tren
+  // Conjunto de pares `(p, j)` donde `p` es la posición del tren y `j` el
+  // número del tren. Como `p` es la primera componente, los trenes estarán
+  // ordenados por su pocición. Guardamos tanto la posición como el número del
+  // tren para poder identificarlos dentro del conjunto.
   set<pair<int, int>> sorted_trains;
 
   for (int i = 0; i < E; ++i) {
@@ -60,7 +62,7 @@ int main() {
       cin >> i;
 
       int d = station_distance[i];
-      int p = find_closest_train_pos(sorted_trains, d);
+      int p = find_next_train_pos(sorted_trains, d);
       if (p == -1) {
         cout << "-1" << endl;
       } else {
