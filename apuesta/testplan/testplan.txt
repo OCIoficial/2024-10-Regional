@@ -1,17 +1,16 @@
 [Subtask 1]
 
-  sample ; copy statement/sample-*.in
+    sample ; copy statement/sample-*.in
 
-
-  # Use a script to generate a test case programatically
-  same ; all_same.py 5 -1
-  same ; all_same.py 5 1
-  alternating ; alternating.py 5
-  random ; gen_random.py 5
-  random ; gen_random.py 5
-  random ; gen_random.py 5
-  random ; gen_random.py 5
-  random ; gen_random.py 5
+    # Use a script to generate a test case programmatically
+    same ; all_same.py 5 -1
+    same ; all_same.py 5 1
+    alternating ; alternating.py 5
+    random ; gen_random.py 5
+    random ; gen_random.py 5
+    random ; gen_random.py 5
+    random ; gen_random.py 5
+    random ; gen_random.py 5
 
 
 [Subtask 2]
@@ -20,9 +19,9 @@
     same ; all_same.py 100 1
     alternating ; alternating.py 100
     alternating ; alternating.py 99
-	random ; gen_random.py 100
-	random ; gen_random.py 100
-	random ; gen_random.py 100
+    random ; gen_random.py 100
+    random ; gen_random.py 100
+    random ; gen_random.py 100
 
 [Subtask 3]
 
@@ -30,9 +29,9 @@
     same ; all_same.py 10000 1
     alternating ; alternating.py 10000
     alternating ; alternating.py 9999
-	random ; gen_random.py 10000
-	random ; gen_random.py 10000
-	random ; gen_random.py 10000
+    random ; gen_random.py 10000
+    random ; gen_random.py 10000
+    random ; gen_random.py 10000
 
 [Subtask 4]
 
@@ -40,5 +39,5 @@
     same ; all_same.py 1000000 1
     alternating ; alternating.py 1000000
     alternating ; alternating.py 999999
-	random ; gen_random.py 1000000
-	random ; gen_random.py 1000000
+    random ; gen_random.py 1000000
+    random ; gen_random.py 1000000
