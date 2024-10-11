@@ -25,26 +25,28 @@
   manual-n-eq-1 ; echo 1 4
   manual-n-eq-1 ; echo 1 10000
   manual-n-eq-1 ; echo 1 10001
-  manual-n-eq-1 ; echo 1 1000000000
-  manual-n-eq-1 ; echo 1 999999999
-  rand-n-eq-1 ; gen_random.py 1 1000000000
-  rand-n-eq-1 ; gen_random.py 1 1000000000
-  rand-n-eq-1 ; gen_random.py 1 1000000000
-  rand-n-eq-1 ; gen_random.py 1 1000000000
+  manual-n-eq-1 ; echo 1 1000000000000000000
+  manual-n-eq-1 ; echo 1 999999999999999999
+  rand-n-eq-1 ; gen_random.py 1 1000000000000000000
+  rand-n-eq-1 ; gen_random.py 1 1000000000000000000
+  rand-n-eq-1 ; gen_random.py 1 1000000000000000000
+  rand-n-eq-1 ; gen_random.py 1 1000000000000000000
 
 [Subtask 3 - validators/st3.cpp]
   manual-even ; echo 2 2
-  manual-even ; echo 1000000000 1000000000
+  manual-even ; echo 500000000000000000 2
+  manual-even ; echo 2 500000000000000000
   rand-even ; gen_random_even.py 1000000000 1000000000
   rand-even ; gen_random_even.py 1000000000 1000000000
   rand-even ; gen_random_even.py 1000000000 1000000000
   rand-even ; gen_random_even.py 1000000000 1000000000
   rand-even ; gen_random_even.py 1000000000 1000000000
   rand-even ; gen_random_even.py 1000000000 1000000000
-  
 
 [Subtask 4 - validators/st4.cpp]
   @extends subtask 1
+  manual-big ; echo 1000000000000000 1000
+  manual-big ; echo 100000000000000000 10
   manual-big ; echo 1000000000 1000000000
   manual-big ; echo 999999999 1000000000
   manual-big ; echo 1000000000 999999999

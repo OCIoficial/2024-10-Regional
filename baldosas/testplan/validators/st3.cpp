@@ -1,12 +1,15 @@
 #include "testlib.h"
 
+const long long UPPER = 1'000'000'000'000'000'000;
+
 int main() {
   registerValidation();
-  int n = inf.readInt(1, 1e9, "n");
+  int n = inf.readLong(1LL, UPPER, "n");
   ensuref(n%2 == 0, "n debe ser par");
   inf.readSpace();
-  int m = inf.readInt(1, 1e9, "m");
+  int m = inf.readLong(1LL, UPPER, "m");
   ensuref(m%2 == 0, "m debe ser par");
+  ensuref(n <= UPPER/m, "n*m debe ser menor o igual a 1e18");
   inf.readEoln();
   inf.readEof();
 }
