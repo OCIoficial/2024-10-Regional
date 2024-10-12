@@ -7,40 +7,62 @@
 
 \begin{document}
 \begin{problemDescription}
-  Aburrida con la monótona rutina del día a día, Ana finalmente quiso darle un quiebre a esta, por lo que decidió unirse
-  a la Organización de Cocinas Impecables (OCI). Para poder postular, su cocina debe cumplir ciertos requisitos. Uno de ellos
-  exige que el piso de su cocina tenga un novedoso patrón de baldosas con estilo de ajedrez.
+  Con el fin de romper con la monótona rutina, Ana ha
+  finalmente decidido postular a la Organización de
+  Cocinas Impecables (OCI).
 
-  Este patrón consiste en formar una grilla de baldosas donde se alternan las de color blanco con las de color negro. Además,
-  la nueva moda indica que el cuadrado superior izquierdo siempre debe ser de color blanco.
+  La OCI es muy estricta y pone ciertos requisitos que
+  las cocinas de todos sus miembros deben cumplir.
+  %
+  Uno de ellos exige que el piso de la cocina tenga un novedoso
+  patrón de baldosas con estilo de ajedrez.
+  %
+  Este patrón consiste en formar una grilla
+  donde se alternan baldosas de color blanco y color negro.
+  %
+  Adicionalmente, de acuerdo a la última moda, el cuadrado
+  superior izquierdo siempre debe ser de color blanco.
 
-  La cocina de Ana es un rectángulo de $n \times m$ metros donde $n$ es la altura, $m$ es el ancho, y además cada baldosa es un cuadrado de $1 \times 1$ metros.
+  La cocina de Ana es un rectángulo de $n$ metros de alto y $m$
+  metros de ancho.
+  %
+  Para formar el patrón, Ana ha decidido comprar baldosas de
+  $1\times 1$ metros por lo que necesitará un total de $n\times m$
+  baldosas para cubrir todo su piso.
 
   \begin{center}
     \includegraphics[width=0.25\textwidth]{example-checkerboard.pdf} \\
     Una cocina de $3 \times 4$ metros.
   \end{center}
 
-  Como Ana no desea desperdiciar material, necesita comprar la cantidad exacta de baldosas que utilizará, por lo que necesita
-  de un programa que pueda calcularlo por ella. La tienda cierra en menos de $4$ horas, por lo que necesita que le hagas un
-  programa que permita calcularlo lo más rápido posible.
+  Como Ana no desea desperdiciar material, necesita comprar
+  la cantidad exacta de baldosas que necesita de cada color.
+  %
+  La tienda cierra en menos de $4$ horas, y no hay tiempo que perder.
+  %
+  ?`Podrías ayudarla escribiendo un programa que determine la cantidad
+  de baldosas necesarias de cada color?
 \end{problemDescription}
 
 \begin{inputDescription}
-  La entrada consiste en una sola línea con dos enteros $n$ y $m$ ($1 \leq n \cdot m \leq 10^{18}$), representando el largo y
-  ancho de la cocina respectivamente.
+  La entrada consiste en una sola línea con dos enteros $n$ y $m$
+  ($1 \leq n \cdot m \leq 10^{18}$), representando respectivamente
+  el alto y ancho de la cocina.
 \end{inputDescription}
 
 \begin{outputDescription}
-  La salida debe contener una línea con dos enteros $x$ e $y$, representando la cantidad de baldosas blancas y negras que
-  Ana debe comprar respectivamente.
+  La salida debe contener una única línea con dos enteros $x$ e $y$,
+  representando respectivamente la cantidad de baldosas blancas y
+  la cantidad de baldosas negras que Ana debe comprar para poder
+  completar el patrón.
 \end{outputDescription}
 
 \clearpage
 \begin{scoreDescription}
-  \subtask{25} Se probarán varios casos de prueba donde $1 \leq n, m \leq 10^3$.
+  \subtask{25} Se probarán varios casos de prueba donde $1\leq n \leq 10^3$ y $1\leq m\leq 10^3$.
   \subtask{25} Se probarán varios casos de prueba donde $n = 1$ y $1 \leq m \leq 10^{18}$.
-  \subtask{25} Se probarán varios casos de prueba donde $1 \leq n \cdot m \leq 10^{18}$ y además ambos son pares.
+  \subtask{25} Se probarán varios casos de prueba donde $1 \leq n \cdot m \leq 10^{18}$
+  y además ambos son pares.
   \subtask{25} Se probarán varios casos de prueba sin restricciones adicionales.
 \end{scoreDescription}
 
