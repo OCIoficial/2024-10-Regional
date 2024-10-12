@@ -12,4 +12,14 @@
 
   sample ; copy statement/sample-*.in
 
+  # El parametro determina el día en que se encuentran
+  random ; random_case_2.cpp 5
+  random ; random_case_2.cpp 6
+  random ; random_case_2.cpp 7
+  random ; random_case_2.cpp 8
+  random ; random_case_2.cpp 9
+  random ; random_case_2.cpp 10
+
+  # Los casos manuales checkean los casos en donde se encuentran
+  # en el día 11 y cuando nunca se encuentran
   manual ; copy testplan/manual-*.in

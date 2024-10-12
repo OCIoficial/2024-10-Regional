@@ -2,6 +2,16 @@
 #include <iostream>
 #include <random>
 
+bool check_answer(const std::vector<int> &fw, const std::vector<int> &sw,
+                  int d) {
+  for (int i = 0; i < 35; ++i) {
+    if (fw[i % 7] == sw[i % 5]) {
+      return i == d;
+    }
+  }
+  return false;
+}
+
 int main(int argc, char *argv[]) {
   //  The argument in position 1 is the hidden seed.
   std::hash<std::string> hasher;
@@ -27,6 +37,8 @@ int main(int argc, char *argv[]) {
       sw[i] = random_day(gen);
     }
   }
+
+  assert(check_answer(fw, sw, DAY));
 
   for (int i = 0; i < 7; i++) {
     if (fw[i]) {

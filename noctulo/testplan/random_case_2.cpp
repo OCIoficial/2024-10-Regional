@@ -2,6 +2,16 @@
 #include <iostream>
 #include <random>
 
+bool check_answer(const std::vector<int> &fw, const std::vector<int> &sw,
+                  int d) {
+  for (int i = 0; i < 35; ++i) {
+    if (fw[i % 7] == sw[i % 5]) {
+      return i == d;
+    }
+  }
+  return false;
+}
+
 int main(int argc, char *argv[]) {
   //  The argument in position 1 is the hidden seed.
   std::hash<std::string> hasher;
@@ -13,10 +23,10 @@ int main(int argc, char *argv[]) {
   std::vector<int> fw(7, -1);
   std::vector<int> sw(5, -1);
   std::uniform_int_distribution<int> random_day(0, 1);
-  switch (DAY){
+  switch (DAY) {
     case 5:
-      for (int i=0;i<7;i++){
-        if (i < 5){
+      for (int i = 0; i < 7; i++) {
+        if (i < 5) {
           fw[i] = random_day(gen);
           sw[i] = !fw[i];
         }
@@ -25,8 +35,8 @@ int main(int argc, char *argv[]) {
       }
       break;
     case 6:
-      for (int i=0;i<7;i++){
-        if (i < 5){
+      for (int i = 0; i < 7; i++) {
+        if (i < 5) {
           fw[i] = random_day(gen);
           sw[i] = !fw[i];
         }
@@ -35,11 +45,11 @@ int main(int argc, char *argv[]) {
       }
       break;
     case 7:
-      for (int i=0;i<7;i++){
-        if (i == 2){
+      for (int i = 0; i < 7; i++) {
+        if (i == 2) {
           sw[i] = fw[0];
           fw[i] = !sw[i];
-        } else if (i < 5){
+        } else if (i < 5) {
           fw[i] = random_day(gen);
           sw[i] = !fw[i];
         }
@@ -66,6 +76,8 @@ int main(int argc, char *argv[]) {
       sw[0] = sw[2] = sw[4] = fw[1] = fw[6] = fw[3] = !fw[0];
       break;
   }
+
+  assert(check_answer(fw, sw, DAY));
 
   for (int i = 0; i < 7; i++) {
     if (fw[i]) {
