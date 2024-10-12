@@ -1,4 +1,7 @@
 [Subtask 1]
+
+  sample ; copy statement/sample-3.in
+
   # El parametro determina el día en que se encuentran
   random ; random_case_1.cpp 0
   random ; random_case_1.cpp 1
@@ -10,7 +13,8 @@
 [Subtask 2]
   @extends subtask 1
 
-  sample ; copy statement/sample-*.in
+  sample ; copy statement/sample-1.in
+  sample ; copy statement/sample-2.in
 
   # El parametro determina el día en que se encuentran
   random ; random_case_2.cpp 5

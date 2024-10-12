@@ -48,7 +48,7 @@
 %% HEADER
 \getenv[\phase]{OCIMATIC_PHASE}
 
-\setlength\headheight{54.3pt} 
+\setlength\headheight{54.3pt}
 \pagestyle{fancy}
 \lhead{\includegraphics[height=34pt]{logo.eps}}
 \rhead{\phase\ \the\year}
