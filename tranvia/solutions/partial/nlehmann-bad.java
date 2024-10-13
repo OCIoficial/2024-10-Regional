@@ -1,3 +1,4 @@
+// @ocimatic should-fail=[st1, st2]
 import java.util.*;
 import java.io.*;
 
@@ -34,7 +35,8 @@ class tranvia {
                 if (trains[j] != -1) {
                     int count = sorted_trains.remove(trains[j]);
                     if (count > 1) {
-                        sorted_trains.put(trains[j], count - 1);
+                        // debiese ser sorted_trains.put(trains[j], count - 1);
+                        sorted_trains.put(p, count - 1);
                     }
                 }
 

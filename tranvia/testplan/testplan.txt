@@ -6,23 +6,32 @@
   # Caso borde con L=1
   largo-uno ; copy testplan/manual-1.in
 
-  # Casos random
+  # Caso borde que actualiza un tren en una posición que ya tiene trenes
+  manual ; copy testplan/manual-2.in
+
   rand-small-n ; dumb_random.py 10 10 10
   rand-small-n ; dumb_random.py 10 100 100
   rand-small-n ; dumb_random.py 10 1000 1000
   rand-big-n ; dumb_random.py 100000 10 10
   rand-big-n ; dumb_random.py 100000 100 100
   rand-big-n ; dumb_random.py 100000 1000 1000
-  smart_random ; smart_random.py 500 forward
-  smart_random ; smart_random.py 500 reverse
+  split ; split.py 500 forward
+  split ; split.py 500 reverse
+  alternate ; alternate.py 250 forward
+  alternate ; alternate.py 250 reverse
+  samepos ; samepos.py 1000 1000 10
+  samepos ; samepos.py 1000 1000 100
 
 [Subtask 2]
   @extends subtask 1
 
-  # Casos random
-  rand-small-n ; dumb_random.py 10 10000 10000
-  rand-small-n ; dumb_random.py 10 100000 100000
-  rand-big-n ; dumb_random.py 100000 10000 10000
-  rand-big-n ; dumb_random.py 100000 100000 100000
-  smart_random ; smart_random.py 50000 forward
-  smart_random ; smart_random.py 50000 reverse
+  rand-small-n ; dumb_random.py 10 10000 400000
+  rand-small-n ; dumb_random.py 10 100000 400000
+  rand-big-n ; dumb_random.py 100000 10000 400000
+  rand-big-n ; dumb_random.py 100000 100000 400000
+  split ; split.py 100000 forward
+  split ; split.py 100000 reverse
+  alternate ; alternate.py 100000 forward
+  alternate ; alternate.py 100000 reverse
+  samepos ; samepos.py 100000 100000 10
+  samepos ; samepos.py 100000 100000 50000

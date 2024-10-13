@@ -11,13 +11,13 @@ direction = sys.argv[3]
 
 L = random.randint(100_000_000, 1_000_000_000)
 
-assert 2 * N <= 100000
+assert 2 * N <= 400_000
 
 print(L, N, N, 2 * N)
 
 # Poner las estaciones en posiciones aleatorias
 D = sorted(random.sample(range(0, L + 1), N))
-print(" ".join(str(d) for d in D))
+print(*D)
 
 # Poner los trenes en posiciones aleatorias
 P = sorted(random.sample(range(0, L + 1), N))
