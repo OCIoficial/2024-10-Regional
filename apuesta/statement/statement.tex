@@ -11,10 +11,10 @@
 	\node at (2.5,-1.3) {\small 2};
 	\node at (3.5,-1.3) {\small 3};
 
-    \node at (0.5,-0.5) {-1};
-    \node at (1.5,-0.5) {1};
-    \node at (2.5,-0.5) {-1};
-    \node at (3.5,-0.5) {-1};
+    \node at (0.5,-0.5) {1};
+    \node at (1.5,-0.5) {-1};
+    \node at (2.5,-0.5) {1};
+    \node at (3.5,-0.5) {1};
 }
 
 \newcommand{\drawlayerl}[1]{
@@ -47,28 +47,27 @@
 
 \begin{document}
 \begin{problemDescription}
-Fernanda y Gabriela decidieron hacer una apuesta de alto riesgo.
+Fernanda y decidió hacer una apuesta de alto riesgo con sus amigos.
 Fernanda lanza una moneda.
 %
-Si cae sello, pasarán a la Industria Chilena de Papas Caseras (ICPC)
+Si cae cara, pasarán a la Industria Chilena de Papas Caseras (ICPC)
 a comerse una porción de papas, de lo contario, se quedarán de brazos cruzados todo el día.
 %
-Lamentablemente, la moneda cayó cara, por lo que el destino decidió que se perderían
+Lamentablemente, la moneda cayó sello, por lo que el destino decidió que se perderían
 de esta increíble oportunidad.
 %
 Pero Fernanda, no contenta con el resultado, decidió hacer una nueva apuesta en la que
-esta segura podrá ganar.
+está segura podrá ganar.
 
 En esta nueva apuesta, Fernanda lanza $n$ monedas
 y anota los resultados en una lista.
 %
 Podemos representar esta lista con un arreglo de
 enteros dónde 1 representa que la moneda cayó
-cara y -1 que cayó cero.
+cara y -1 que cayó sello.
 %
 La siguiente figura representa un escenario
-con 4 monedas donde la primera cayó cara
-y las tres siguientes cayeron sello.
+con 4 monedas.
 %
 \begin{center}
 \begin{tikzpicture}
@@ -77,15 +76,15 @@ y las tres siguientes cayeron sello.
 \node at (1.5,-1.3) {\small 1};
 \node at (2.5,-1.3) {\small 2};
 \node at (3.5,-1.3) {\small 3};
-\node at (0.5,-0.5) {$-1$};
-\node at (1.5,-0.5) {$1$};
-\node at (2.5,-0.5) {$-1$};
-\node at (3.5,-0.5) {$-1$};
+\node at (0.5,-0.5) {$1$};
+\node at (1.5,-0.5) {$-1$};
+\node at (2.5,-0.5) {$1$};
+\node at (3.5,-0.5) {$1$};
 \end{tikzpicture}
 \end{center}
 Para ganar la apuesta, Fernanda debe contar la cantidad de subarreglos
-contiguos donde la cantidad de sellos es estrictamente mayor
-que la cantidad de caras.
+contiguos donde la cantidad de caras es estrictamente mayor
+que la cantidad de sellos.
 %
 Si un subarreglo cumple con esta condición decimos que el subarreglo
 es exitoso.
@@ -166,11 +165,11 @@ Fernanda ganaría la apuesta.
 Fernanda ya lanzó las monedas y se puso a contar la cantidad de subarreglos
 exitosos.
 % exitosos y totales utilizando sus conocimentos avanzados de combinatoria.
-A pesar de sus avanzados conocimientos de combinatoria se está demorando mucho
+A pesar de sus avanzados conocimientos de combinatoria, se está demorando mucho
 y la ICPC cierra en menos de 4 horas.
 %
-?`Podrías ayudarla a contar la cantidad de subarreglos exitosos para que alcance
-a ir a la ICPC antes de que cierre?
+?`Podrías ayudarla a contar la cantidad de subarreglos exitosos para
+que alcance a ir a la ICPC antes de que cierre?
 \end{problemDescription}
 
 \begin{inputDescription}
@@ -181,18 +180,19 @@ La segunda línea contiene $n$ enteros.
 %
 El entero $i$-ésimo corresponde al resultado de lanzar la $i$-ésima moneda.
 %
-El valor será 1 si la moneda cayó cara o -1 si cayó sello.
+El valor será 1 si la moneda cayó cara y -1 si cayó sello.
 \end{inputDescription}
 
 \begin{outputDescription}
 La salida debe contener un único entero correspondiente a la cantidad
-de subarreglos exitosos.
+de subarreglos exitosos, es decir, la cantidad de subarreglos donde
+la cantidad de caras es estrictamente mayor que la cantidad de sellos.
 \end{outputDescription}
 
 \begin{scoreDescription}
-	\subtask{10} Se probarán varios casos de prueba donde $n \leq 4$
-	\subtask{20} Se probarán varios casos de prueba donde $n \leq 100$
-  	\subtask{30} Se probarán varios casos de prueba donde $n \leq 10^4$
+	\subtask{10} Se probarán varios casos de prueba donde $n \leq 4$.
+	\subtask{20} Se probarán varios casos de prueba donde $n \leq 100$.
+  	\subtask{30} Se probarán varios casos de prueba donde $n \leq 10^4$.
 	\subtask{40} Se probarán varios casos de prueba sin restricciones adicionales.
 \end{scoreDescription}
 

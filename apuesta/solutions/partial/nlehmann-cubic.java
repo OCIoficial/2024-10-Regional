@@ -1,3 +1,5 @@
+// @ocimatic should-fail=[st3, st4]
+
 import java.util.*;
 import java.io.*;
 
