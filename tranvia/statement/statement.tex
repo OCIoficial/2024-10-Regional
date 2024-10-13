@@ -20,7 +20,7 @@
   %
   En esta primera fase también se espera que la línea
   opere en solo una dirección siguiendo el flujo del
-  tráfico en la hora punta.
+  tráfico a la hora punta.
 
   La línea tendrá un largo $L$ y contará con $N$
   estaciones numeradas de 1 a $N$.
@@ -113,8 +113,8 @@
   \end{itemize}
   %
   %
-  La segunda línea contiene $N$ enteros ordenados entre 0 y $L$ correspondientes
-  a la distancia donde se ubica cada una de las estaciones.
+  La segunda línea contiene $N$ enteros en orden creciente, todos entre 0 y $L$,
+  correspondientes a las distancias donde se ubican cada una de las estaciones.
   %
   Se garantiza que todas las estaciones estarán en una posición distinta.
 
@@ -128,7 +128,7 @@
   %
   Si $p$ es igual a -1 la posición del tren es desconocida.
   %
-  En caso contrario, $p$ indica la posición del tren desde el inicio
+  En caso contrario, $p$ indica la nueva posición del tren desde el inicio
   de la línea.
   \item Si $t=2$ sigue un entero $i$ indicando que el servidor debe responder el tiempo
   estimado de llegada del próximo tren para la estación $i$.
