@@ -12,12 +12,16 @@
   %
   Tras una larga evaluación, el consejo ciudadano de
   transporte ha decidido que la mejor opción es construir un
-  sistema de tren ligero o \emph{tranvía}.
+  \emph{tranvía}.
 
   En su primera fase, el proyecto contempla la
   construcción de una línea separada del tráfico, con
   intersecciones a desnivel en puntos estratégicos.
   %
+  En esta primera fase también se espera que la línea
+  opere en solo una dirección siguiendo el flujo del
+  tráfico en la hora punta.
+
   La línea tendrá un largo $L$ y contará con $N$
   estaciones numeradas de 1 a $N$.
   %
@@ -68,10 +72,10 @@
   moviendo a una velocidad constante unitaria.
   %
   Específicamente, para una estación $i$ a distancia $d_i$,
-  el próximo tren corresponde al tren más cercano
-  cuya posición es \textbf{menor o igual} que $d_i$.
+  decimos que el próximo tren corresponde al tren más cercano
+  cuya posición actual es \textbf{menor o igual} que $d_i$.
   %
-  Dado la posición $p$ del próximo tren, el tiempo estimado
+  Dada la posición $p$ del próximo tren, el tiempo estimado
   de llegada se calcula como $(d_i - p)$.
 
   Concretamente, el servidor deber responder a dos tipos
@@ -80,11 +84,21 @@
     \item \textbf{Tipo 1}: Dada dos enteros $j$ y $p$, este evento
     indica que la última posición conocida del tren $j$ es $p$.
     %
-    Si $p$ es igual a $-1$ entonces la posición del tren es desconocida.
+    Si $p$ es igual a $-1$ entonces la posición del tren es desconocida
+    y este ya no debe ser considerado al responder los eventos de tipo 2.
     \item \textbf{Tipo 2}: Dada una estación $i$, el servidor debe
     responder el tiempo estimado de llegada del próximo tren o determinar
     que hay ningún tren que se aproxima.
   \end{itemize}
+
+  Notar que debido a fluctuaciones en el sistema, no hay garantías
+  en como evolucionan las posiciones de los trenes.
+  %
+  Estos pueden retroceder o desaparecer del sistema en cualquier momento.
+  %
+  El servidor siempre responderá a los eventos de tipo 2 usando
+  la posición actual de los trenes.
+
   El consejo de transporte tiene poca experiencia en programación.
   ?`Podrías ayudarlos implementando el servidor?
 \end{problemDescription}
