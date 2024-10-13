@@ -22,5 +22,6 @@ int main() {
 			totales++;
 		}
 	}
-	cout << exitosos << " " << totales << endl;
+	// cout << exitosos << " " << totales << endl;
+	cout << exitosos << endl;
 }

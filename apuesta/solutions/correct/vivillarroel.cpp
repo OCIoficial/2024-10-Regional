@@ -47,5 +47,6 @@ int main() {
 		totales += i+1;
 
 	}
-	cout << exitosos << " " << totales << endl;
+	// cout << exitosos << " " << totales << endl;
+	cout << exitosos << endl;
 }
