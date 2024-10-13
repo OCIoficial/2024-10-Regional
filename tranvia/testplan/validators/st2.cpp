@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 #include "testlib.h"
@@ -7,8 +6,8 @@ using namespace std;
 
 constexpr int MAX_L = 1e9;
 constexpr int MAX_N = 1e5;
-constexpr int MAX_M = 1e3;
-constexpr int MAX_E = 1e3;
+constexpr int MAX_M = 1e5;
+constexpr int MAX_E = 4 * 1e5;
 
 int main() {
   registerValidation();
