@@ -32,7 +32,7 @@ int main () {
     } else {
       cin >> j;
 
-      // Los tren que están después de p_stations[j] son equivalentes a posición desconocida para esta búsqueda
+      // Los trenes que están después de p_stations[j] son equivalentes a posición desconocida para esta búsqueda
       int p_closest = UNKNOWN;
 
       for (int k = 1; k <= m; k++) {
