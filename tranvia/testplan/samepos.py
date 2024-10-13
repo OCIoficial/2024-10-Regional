@@ -3,12 +3,13 @@ import sys
 
 random.seed(sys.argv[1])
 
-N = int(sys.argv[2])
+N = 100_000
+QN = int(sys.argv[2])
 M = int(sys.argv[3])
 G = int(sys.argv[4])
 L = random.randint(100_000_000, 1_000_000_000)
 
-print(L, N, M, M // G + N)
+print(L, N, M, (M // G) * G + QN)
 
 # Poner las estaciones en posiciones aleatorias
 D = sorted(random.sample(range(0, L + 1), N))
@@ -26,5 +27,5 @@ for k in range(M // G):
 # Preguntar por cada una de las estaciones
 stations = list(range(1, N + 1))
 random.shuffle(stations)
-for i in stations:
+for i in stations[:QN]:
     print(2, i)

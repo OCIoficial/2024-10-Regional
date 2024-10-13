@@ -19,8 +19,8 @@
   split ; split.py 500 reverse
   alternate ; alternate.py 250 forward
   alternate ; alternate.py 250 reverse
-  samepos ; samepos.py 1000 1000 10
-  samepos ; samepos.py 1000 1000 100
+  samepos ; samepos.py 500 500 10
+  samepos ; samepos.py 500 500 100
 
 [Subtask 2 - validators/st2.cpp]
   @extends subtask 1
