@@ -1,20 +1,22 @@
-[Subtask 1]
+[Subtask 1 - validators/st1.cpp]
 
-    sample ; copy statement/sample-*.in
+    sample ; copy statement/sample-1.in
 
     # Use a script to generate a test case programmatically
-    same ; all_same.py 5 -1
-    same ; all_same.py 5 1
-    alternating ; alternating.py 5
-    random ; gen_random.py 5
-    random ; gen_random.py 5
-    random ; gen_random.py 5
-    random ; gen_random.py 5
-    random ; gen_random.py 5
+    same ; all_same.py 4 -1
+    same ; all_same.py 4 1
+    alternating ; alternating.py 4
+    random ; gen_random.py 4
+    random ; gen_random.py 4
+    random ; gen_random.py 4
+    random ; gen_random.py 4
+    random ; gen_random.py 4
 
 
-[Subtask 2]
+[Subtask 2 - validators/st2.cpp]
     @extends subtask 1
+
+    sample ; copy statement/sample-2.in
 
     same ; all_same.py 100 -1
     same ; all_same.py 100 1
@@ -24,7 +26,7 @@
     random ; gen_random.py 100
     random ; gen_random.py 100
 
-[Subtask 3]
+[Subtask 3 - validators/st3.cpp]
     @extends subtask 2
 
     same ; all_same.py 10000 -1
@@ -35,7 +37,7 @@
     random ; gen_random.py 10000
     random ; gen_random.py 10000
 
-[Subtask 4]
+[Subtask 4 - validators/st4.cpp]
     @extends subtask 3
 
     same ; all_same.py 1000000 -1
