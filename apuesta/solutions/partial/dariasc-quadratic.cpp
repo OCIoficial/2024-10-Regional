@@ -1,3 +1,5 @@
+// @ocimatic should-fail=[st4]
+
 #include <bits/stdc++.h>
 using namespace std;
 
