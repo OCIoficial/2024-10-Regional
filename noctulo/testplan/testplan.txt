@@ -1,4 +1,4 @@
-[Subtask 1]
+[Subtask 1 - validators/st1.cpp]
 
   sample ; copy statement/sample-3.in
 
@@ -10,7 +10,7 @@
   random ; random_case_1.cpp 4
 
 
-[Subtask 2]
+[Subtask 2 - validators/st2.cpp]
   @extends subtask 1
 
   sample ; copy statement/sample-1.in
