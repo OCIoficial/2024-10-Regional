@@ -7,7 +7,7 @@
 \begin{document}
 \begin{problemDescription}
   Conscientes de la crisis climática, la ciudad de Chuchunco
-  han decidido construir un nuevo sistema de transporte
+  ha decidido construir un nuevo sistema de transporte
   público sustentable.
   %
   Tras una larga evaluación, el consejo ciudadano de
@@ -18,8 +18,8 @@
   construcción de una línea separada del tráfico, con
   intersecciones a desnivel en puntos estratégicos.
   %
-  En esta primera fase también se espera que la línea
-  opere en solo una dirección siguiendo el flujo del
+  También se espera que para esta primera fase la línea
+  opere solo en una dirección siguiendo el flujo del
   tráfico a la hora punta.
 
   La línea tendrá un largo $L$ y contará con $N$
@@ -63,7 +63,7 @@
   desconocido.
   %
   A medida que estos entran en funcionamiento, el
-  servidor va recibiendo eventos indicando el
+  servidor recibirá eventos indicando el
   último estado conocido de los trenes.
   %
   Basándose en el último estado conocido, el servidor
@@ -81,14 +81,14 @@
   Concretamente, el servidor deber responder a dos tipos
   de eventos:
   \begin{itemize}
-    \item \textbf{Tipo 1}: Dada dos enteros $j$ y $p$, este evento
+    \item \textbf{Tipo 1}: Dados dos enteros $j$ y $p$, este evento
     indica que la última posición conocida del tren $j$ es $p$.
     %
     Si $p$ es igual a $-1$ entonces la posición del tren es desconocida
     y este ya no debe ser considerado al responder los eventos de tipo 2.
     \item \textbf{Tipo 2}: Dada una estación $i$, el servidor debe
     responder el tiempo estimado de llegada del próximo tren o determinar
-    que hay ningún tren que se aproxima.
+    que no hay ningún tren que se aproxima.
   \end{itemize}
 
   Notar que debido a fluctuaciones en el sistema, no hay garantías
